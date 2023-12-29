@@ -21,6 +21,7 @@ class ReactDragListView extends Component {
     scrollSpeed: PropTypes.number,
     lineClassName: PropTypes.string,
     children: PropTypes.node
+    style: PropTypes.object,
   }
 
   static defaultProps = {
@@ -30,7 +31,8 @@ class ReactDragListView extends Component {
     scrollSpeed: 10,
     handleSelector: '',
     lineClassName: '',
-    children: null
+    children: null,
+    style: {}
   }
 
   constructor(props) {
@@ -238,7 +240,7 @@ class ReactDragListView extends Component {
   render() {
     return (
       // eslint-disable-next-line react/no-unknown-property
-      <div role="presentation" onPointerDown={this.onMouseDown} ref={(c) => { this.dragList = c; }}>
+      <div style={this.style} role="presentation" onPointerDown={this.onMouseDown} ref={(c) => { this.dragList = c; }}>
         {this.props.children}
       </div>
     );
